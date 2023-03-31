@@ -1,0 +1,33 @@
+public class Main{
+
+        public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Введите пароль: ");
+            String password = input.next();
+            if (isValid(password)) {
+                System.out.println("Хороший пароль");
+            } else {
+                System.out.println("Пароль слабый");
+            }
+        }
+
+        public static boolean isValid(String password) {
+            if(password.length()<8) {
+                return false;
+            } else {
+                int dCount = 0;
+                int cCount = 0;
+                for (int i=0; i<=password.length()-1; i++) {
+                    char c=password.charAt(i);
+
+                    if(Character.isLetter(c)) {
+                        cCount++;
+                    }
+                    if(Character.isDigit(c)) {
+                        dCount++;
+                    }
+                }
+                return dCount > 0 && cCount > 0;
+            }
+        }
+    }
